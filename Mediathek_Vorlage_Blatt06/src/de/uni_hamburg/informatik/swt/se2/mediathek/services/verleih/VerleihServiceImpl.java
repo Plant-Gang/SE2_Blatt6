@@ -308,7 +308,6 @@ public class VerleihServiceImpl extends AbstractObservableService
         return result;
     }
 
-<<<<<<< HEAD
     private VormerkKarte getOderErzeugeVormerkKarte(Medium medium)
     {
         assert mediumImBestand(
@@ -429,13 +428,6 @@ public class VerleihServiceImpl extends AbstractObservableService
                 break;
             }
         }
-
         return result;
     }
-=======
-    /**
-     * TODO Test
-     */
-
->>>>>>> 7092ac26334b0421502618e53a21bcea86a0eaef
 }
