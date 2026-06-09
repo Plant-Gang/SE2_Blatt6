@@ -308,6 +308,11 @@ public class VerleihServiceImpl extends AbstractObservableService
         return result;
     }
 
+    /**
+     * Finde oder erzeuge eine Vormerkkarte für ein Medium.
+     * @param medium Das Medium.
+     * @return VormerkKarte Die VormerkKarte.
+     */
     private VormerkKarte getOderErzeugeVormerkKarte(Medium medium)
     {
         assert mediumImBestand(
@@ -406,6 +411,10 @@ public class VerleihServiceImpl extends AbstractObservableService
         informiereUeberAenderung();
     }
 
+    /**
+     * Hilfsmethode für verleiheAn, um den 1. Vormerker zu entfernen, wenn er ausleiht.
+     * @param medium Das Medium
+     */
     private void entferneErstenVormerkerOhneBenachrichtigung(Medium medium)
     {
         assert istVorgemerkt(
@@ -414,6 +423,12 @@ public class VerleihServiceImpl extends AbstractObservableService
             .entferneErstenVormerker();
     }
 
+    /**
+     * Hilfsmethode um zu checken, ob Medien den Kunden als ersten Vormerker haben.
+     * @param kunde Der Kunde.
+     * @param medien Die Liste an Medien
+     * @return boolean
+     */
     private boolean sindAlleVormerkungenErfuellt(Kunde kunde,
             List<Medium> medien)
     {
