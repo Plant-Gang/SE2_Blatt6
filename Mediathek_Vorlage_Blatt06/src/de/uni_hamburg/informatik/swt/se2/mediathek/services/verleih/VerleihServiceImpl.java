@@ -7,6 +7,7 @@ import java.util.Map;
 
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.Kunde;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.Verleihkarte;
+import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.VormerkKarte;
 import de.uni_hamburg.informatik.swt.se2.mediathek.entitaeten.medien.Medium;
 import de.uni_hamburg.informatik.swt.se2.mediathek.services.AbstractObservableService;
 import de.uni_hamburg.informatik.swt.se2.mediathek.services.kundenstamm.KundenstammService;
@@ -44,6 +45,10 @@ public class VerleihServiceImpl extends AbstractObservableService
      * Der Protokollierer für die Verleihvorgänge.
      */
     private VerleihProtokollierer _protokollierer;
+    /**
+     * Diese Map spiechect die VormerkKarte, die maxsimal 3 Vormerker hat.
+     */
+    private Map<Medium, VormerkKarte> _vormerkarten;
 
     /**
      * Konstruktor. Erzeugt einen neuen VerleihServiceImpl.
@@ -67,6 +72,7 @@ public class VerleihServiceImpl extends AbstractObservableService
         _kundenstamm = kundenstamm;
         _medienbestand = medienbestand;
         _protokollierer = new VerleihProtokollierer();
+        _vormerkarten = new HashMap<Medium, VormerkKarte>();
     }
 
     /**
@@ -105,7 +111,8 @@ public class VerleihServiceImpl extends AbstractObservableService
         assert medienImBestand(
                 medien) : "Vorbedingung verletzt: medienImBestand(medien)";
 
-        return sindAlleNichtVerliehen(medien);
+        return sindAlleNichtVerliehen(medien)
+                && sindAlleVormerkungenErfuellt(kunde, medien);
     }
 
     @Override
@@ -208,6 +215,10 @@ public class VerleihServiceImpl extends AbstractObservableService
                     ausleihDatum);
 
             _verleihkarten.put(medium, verleihkarte);
+            if (istVorgemerkt(medium))
+            {
+                entferneErstenVormerkerOhneBenachrichtigung(medium);
+            }
             _protokollierer.protokolliere(
                     VerleihProtokollierer.EREIGNIS_AUSLEIHE, verleihkarte);
         }
@@ -297,4 +308,127 @@ public class VerleihServiceImpl extends AbstractObservableService
         return result;
     }
 
+    private VormerkKarte getOderErzeugeVormerkKarte(Medium medium)
+    {
+        assert mediumImBestand(
+                medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
+
+        VormerkKarte karte = _vormerkarten.get(medium);
+        if (karte == null)
+        {
+            karte = new VormerkKarte(medium);
+            _vormerkarten.put(medium, karte);
+        }
+        return karte;
+    }
+
+    @Override
+    public void merkeVor(Kunde kunde, Medium medium)
+    {
+        assert kundeImBestand(
+                kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
+        assert mediumImBestand(
+                medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
+        assert hatFreienVormerkplatz(
+                medium) : "Vorbedingung verletzt: hatFreienVormerkplatz(medium)";
+        assert !istVorgemerktFuer(kunde,
+                medium) : "Vorbedingung verletzt: !istVorgemerktFuer(kunde, medium)";
+        assert !(istVerliehen(medium) && istVerliehenAn(kunde,
+                medium)) : "Vorbedingung verletzt: Kunde darf ein von ihm ausgeliehenes Medium nicht vormerken";
+
+        getOderErzeugeVormerkKarte(medium).merkeVor(kunde);
+        informiereUeberAenderung();
+    }
+
+    @Override
+    public boolean istVorgemerkt(Medium medium)
+    {
+        assert mediumImBestand(
+                medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
+
+        VormerkKarte karte = _vormerkarten.get(medium);
+        return karte != null && karte.istVorgemerkt();
+    }
+
+    @Override
+    public boolean istVorgemerktFuer(Kunde kunde, Medium medium)
+    {
+        assert kundeImBestand(
+                kunde) : "Vorbedingung verletzt: kundeImBestand(kunde)";
+        assert mediumImBestand(
+                medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
+
+        VormerkKarte karte = _vormerkarten.get(medium);
+        return karte != null && karte.istVorgemerktFuer(kunde);
+    }
+
+    @Override
+    public boolean hatFreienVormerkplatz(Medium medium)
+    {
+        assert mediumImBestand(
+                medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
+
+        VormerkKarte karte = _vormerkarten.get(medium);
+        return karte == null || karte.hatFreienVormerkplatz();
+    }
+
+    @Override
+    public Kunde getVormerker(Medium medium, int position)
+    {
+        assert mediumImBestand(
+                medium) : "Vorbedingung verletzt: mediumImBestand(medium)";
+
+        VormerkKarte karte = _vormerkarten.get(medium);
+        if (karte == null)
+        {
+            return null;
+        }
+        return karte.getVormerker(position);
+    }
+
+    @Override
+    public Kunde getErstenVormerker(Medium medium)
+    {
+        assert istVorgemerkt(
+                medium) : "Vorbedingung verletzt: istVorgemerkt(medium)";
+        return _vormerkarten.get(medium)
+            .getErstenVormerker();
+    }
+
+    @Override
+    public void entferneErstenVormerker(Medium medium)
+    {
+        assert istVorgemerkt(
+                medium) : "Vorbedingung verletzt: istVorgemerkt(medium)";
+
+        _vormerkarten.get(medium)
+            .entferneErstenVormerker();
+        informiereUeberAenderung();
+    }
+
+    private void entferneErstenVormerkerOhneBenachrichtigung(Medium medium)
+    {
+        assert istVorgemerkt(
+                medium) : "Vorbedingung verletzt: istVorgemerkt(medium)";
+        _vormerkarten.get(medium)
+            .entferneErstenVormerker();
+    }
+
+    private boolean sindAlleVormerkungenErfuellt(Kunde kunde,
+            List<Medium> medien)
+    {
+        boolean result = true;
+
+        for (Medium medium : medien)
+        {
+            if (istVorgemerkt(medium)
+                    && !getErstenVormerker(medium).equals(kunde))
+            {
+                result = false;
+                break;
+            }
+        }
+
+        return result;
+    }
 }

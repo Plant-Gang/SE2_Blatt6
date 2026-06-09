@@ -228,4 +228,77 @@ public interface VerleihService extends ObservableService
      */
     Verleihkarte getVerleihkarteFuer(Medium medium);
 
+    /**
+     * Merkt ein Medium für einen Kunden vor.
+     *
+     * @param kunde Der Kunde.
+     * @param medium Das Medium.
+     *
+     * @require kundeImBestand(kunde)
+     * @require mediumImBestand(medium)
+     */
+    void merkeVor(Kunde kunde, Medium medium);
+
+    /**
+     * Prüft, ob ein Medium vorgemerkt ist.
+     *
+     * @param medium Das Medium.
+     * @return true, wenn das Medium vorgemerkt ist.
+     *
+     * @require mediumImBestand(medium)
+     */
+    boolean istVorgemerkt(Medium medium);
+
+    /**
+     * Prüft, ob ein Medium für einen Kunden vorgemerkt ist.
+     *
+     * @param kunde Der Kunde.
+     * @param medium Das Medium.
+     * @return true, wenn der Kunde Vormerker des Mediums ist.
+     *
+     * @require kundeImBestand(kunde)
+     * @require mediumImBestand(medium)
+     */
+    boolean istVorgemerktFuer(Kunde kunde, Medium medium);
+
+    /**
+     * Prüft, ob ein Medium noch einen freien Vormerkplatz besitzt.
+     *
+     * @param medium Das Medium.
+     * @return true, wenn noch ein Platz frei ist.
+     *
+     * @require mediumImBestand(medium)
+     */
+    boolean hatFreienVormerkplatz(Medium medium);
+
+    /**
+     * Liefert den Vormerker an einer Position.
+     *
+     * @param medium Das Medium.
+     * @param position Die Position.
+     * @return Der Vormerker oder null.
+     *
+     * @require mediumImBestand(medium)
+     */
+    Kunde getVormerker(Medium medium, int position);
+
+    /**
+     * Liefert den ersten Vormerker eines Mediums.
+     *
+     * @param medium Das Medium.
+     * @return Der erste Vormerker.
+     *
+     * @require istVorgemerkt(medium)
+     */
+    Kunde getErstenVormerker(Medium medium);
+
+    /**
+     * Entfernt den ersten Vormerker eines Mediums.
+     *
+     * @param medium Das Medium.
+     *
+     * @require istVorgemerkt(medium)
+     */
+    void entferneErstenVormerker(Medium medium);
+
 }

@@ -213,7 +213,14 @@ public class VormerkWerkzeug
         // werden. Ist dies korrekt implementiert, wird der Vormerk-Button gemäß
         // der Anforderungen a), b), c) und e) aktiviert.
         boolean vormerkenMoeglich = (kunde != null) && !medien.isEmpty();
-
+        for (Medium medium : medien)
+        {
+            vormerkenMoeglich = vormerkenMoeglich
+                    && _verleihService.hatFreienVormerkplatz(medium)
+                    && !_verleihService.istVorgemerktFuer(kunde, medium)
+                    && !(_verleihService.istVerliehen(medium)
+                            && _verleihService.istVerliehenAn(kunde, medium));
+        }
         return vormerkenMoeglich;
     }
 
@@ -229,7 +236,10 @@ public class VormerkWerkzeug
             .getSelectedMedien();
         Kunde selectedKunde = _kundenAuflisterWerkzeug.getSelectedKunde();
         // TODO für Aufgabenblatt 6 (nicht löschen): Vormerken einbauen
-
+        for (Medium medium : selectedMedien)
+        {
+            _verleihService.merkeVor(selectedKunde, medium);
+        }
     }
 
     /**

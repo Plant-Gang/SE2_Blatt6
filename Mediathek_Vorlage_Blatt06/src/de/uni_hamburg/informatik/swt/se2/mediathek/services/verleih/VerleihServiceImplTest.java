@@ -150,4 +150,58 @@ public class VerleihServiceImplTest
         assertFalse(ereignisse[0]);
     }
 
+    @Test
+    public void testeMediumKannVorgemerktWerden()
+    {
+        Medium medium = _medienListe.get(0);
+
+        assertFalse(_service.istVorgemerkt(medium));
+
+        _service.merkeVor(_vormerkkunde, medium);
+
+        assertTrue(_service.istVorgemerkt(medium));
+        assertTrue(_service.istVorgemerktFuer(_vormerkkunde, medium));
+        assertEquals(_vormerkkunde, _service.getErstenVormerker(medium));
+    }
+
+    @Test
+    public void testeNichtErsterVormerkerDarfNichtAusleihen()
+    {
+        Medium medium = _medienListe.get(0);
+
+        _service.merkeVor(_vormerkkunde, medium);
+        _service.merkeVor(_kunde, medium);
+
+        assertFalse(_service.istVerleihenMoeglich(_kunde,
+                Collections.singletonList(medium)));
+    }
+
+    @Test
+    public void testeErsterVormerkerDarfAusleihen()
+    {
+        Medium medium = _medienListe.get(0);
+
+        _service.merkeVor(_vormerkkunde, medium);
+        _service.merkeVor(_kunde, medium);
+
+        assertTrue(_service.istVerleihenMoeglich(_vormerkkunde,
+                Collections.singletonList(medium)));
+    }
+
+    @Test
+    public void testeErsterVormerkerWirdNachAusleiheEntfernt()
+            throws ProtokollierException
+    {
+        Medium medium = _medienListe.get(0);
+
+        _service.merkeVor(_vormerkkunde, medium);
+        _service.merkeVor(_kunde, medium);
+
+        _service.verleiheAn(_vormerkkunde, Collections.singletonList(medium),
+                _datum);
+
+        assertTrue(_service.istVerliehenAn(_vormerkkunde, medium));
+        assertTrue(_service.istVorgemerkt(medium));
+        assertEquals(_kunde, _service.getErstenVormerker(medium));
+    }
 }

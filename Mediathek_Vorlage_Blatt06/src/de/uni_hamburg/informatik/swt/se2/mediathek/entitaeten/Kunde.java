@@ -16,8 +16,6 @@ public class Kunde
     // 4 Leerzeichen für formatierte Strings
     private static final String SPACE = "    ";
 
-    // Git test
-
     // Zustandsfelder für Kundendaten
     private Kundennummer _kundennummer;
     private String _nachname;
