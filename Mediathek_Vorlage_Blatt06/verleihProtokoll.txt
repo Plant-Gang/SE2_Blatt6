@@ -319,3 +319,279 @@ am 9.6.2026 verliehen an
     Anschrift:
     Kannenweg 23
     21868 Stade
+Tue Jun 09 16:57:24 CEST 2026: Rückgabe
+CD:
+    Titel: Greatest Hits Vol. 1 & Vol. 2
+    Kommentar: 2 wundervolle Scheiben
+    Interpret: Billy Joel
+    Spiellänge: 140
+am 2.4.2021 verliehen an
+    Kundennummer: 123457
+    Name: Kai Konrad
+    Telefon: unbekannt
+    Anschrift:
+    Kannenweg 23
+    21868 Stade
+Tue Jun 09 16:58:35 CEST 2026: Ausleihe
+CD:
+    Titel: CD1
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Ausleihe
+CD:
+    Titel: CD2
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Rückgabe
+CD:
+    Titel: CD1
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Rückgabe
+CD:
+    Titel: CD2
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Ausleihe
+CD:
+    Titel: CD1
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 666999
+    Name: paul panter
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Ausleihe
+CD:
+    Titel: CD1
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Ausleihe
+CD:
+    Titel: CD2
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:58:35 CEST 2026: Ausleihe
+CD:
+    Titel: CD3
+    Kommentar: baz
+    Interpret: foo
+    Spiellänge: 123
+am 3.4.2009 verliehen an
+    Kundennummer: 123456
+    Name: ich du
+    Telefon: unbekannt
+    Anschrift:
+    unbekannt
+Tue Jun 09 16:59:53 CEST 2026: Rückgabe
+KonsolenVideospiel:
+    Titel: Resident Evil 5
+    Kommentar: Chris Redfield, der bekannte Titelheld aus Resident Evil, ist dem Bösen rund um den Globus auf den Fersen
+    System: Xbox 360
+am 26.3.2021 verliehen an
+    Kundennummer: 123460
+    Name: Katarina Klum
+    Telefon: unbekannt
+    Anschrift:
+    Ottensener Strasse 10
+    22761 Hamburg
+Tue Jun 09 16:59:53 CEST 2026: Rückgabe
+CD:
+    Titel: Greatest Hits Vol. 1 & Vol. 2
+    Kommentar: 2 wundervolle Scheiben
+    Interpret: Billy Joel
+    Spiellänge: 140
+am 2.4.2021 verliehen an
+    Kundennummer: 123457
+    Name: Kai Konrad
+    Telefon: unbekannt
+    Anschrift:
+    Kannenweg 23
+    21868 Stade
+Tue Jun 09 16:59:53 CEST 2026: Rückgabe
+KonsolenVideospiel:
+    Titel: Dr. Kawashimas Gehirn Jogging
+    Kommentar:  Wie fit ist ihr Gehirn?
+    System: Nintendo DS
+am 2.4.2021 verliehen an
+    Kundennummer: 123457
+    Name: Kai Konrad
+    Telefon: unbekannt
+    Anschrift:
+    Kannenweg 23
+    21868 Stade
+Tue Jun 09 16:59:53 CEST 2026: Rückgabe
+CD:
+    Titel: Hard candy
+    Kommentar: besser
+    Interpret: Madonna
+    Spiellänge: 65
+am 30.3.2021 verliehen an
+    Kundennummer: 123456
+    Name: Susi Sonnenschein
+    Telefon: unbekannt
+    Anschrift:
+    Sonnenallee 20
+    22760 Hamburg
+Tue Jun 09 16:59:53 CEST 2026: Rückgabe
+DVD:
+    Titel: Kung Fu Panda
+    Kommentar: Die Legende von einem Drachenkrieger
+    Regisseur: John Stevenson
+    Laufzeit: 115
+am 21.3.2021 verliehen an
+    Kundennummer: 123456
+    Name: Susi Sonnenschein
+    Telefon: unbekannt
+    Anschrift:
+    Sonnenallee 20
+    22760 Hamburg
+Tue Jun 09 17:01:16 CEST 2026: Ausleihe
+CD:
+    Titel: Breakaway
+    Kommentar: Nachfolger vom Album Tankful
+    Interpret: Kelly Clarkson
+    Spiellänge: 87
+am 9.6.2026 verliehen an
+    Kundennummer: 123465
+    Name: John. J. Ava
+    Telefon: unbekannt
+    Anschrift:
+    Wurtstrasse 23
+    58507 Köln
+Tue Jun 09 17:01:21 CEST 2026: Ausleihe
+CD:
+    Titel: Disturbia
+    Kommentar: gut
+    Interpret: Rihanna
+    Spiellänge: 90
+am 9.6.2026 verliehen an
+    Kundennummer: 123464
+    Name: Lara Croft
+    Telefon: unbekannt
+    Anschrift:
+    Abenteuerallee 33
+    24104 Kiel
+Tue Jun 09 17:02:29 CEST 2026: Rückgabe
+CD:
+    Titel: Breakaway
+    Kommentar: Nachfolger vom Album Tankful
+    Interpret: Kelly Clarkson
+    Spiellänge: 87
+am 9.6.2026 verliehen an
+    Kundennummer: 123465
+    Name: John. J. Ava
+    Telefon: unbekannt
+    Anschrift:
+    Wurtstrasse 23
+    58507 Köln
+Tue Jun 09 17:02:29 CEST 2026: Rückgabe
+CD:
+    Titel: Disturbia
+    Kommentar: gut
+    Interpret: Rihanna
+    Spiellänge: 90
+am 9.6.2026 verliehen an
+    Kundennummer: 123464
+    Name: Lara Croft
+    Telefon: unbekannt
+    Anschrift:
+    Abenteuerallee 33
+    24104 Kiel
+Tue Jun 09 17:02:33 CEST 2026: Ausleihe
+CD:
+    Titel: Breakaway
+    Kommentar: Nachfolger vom Album Tankful
+    Interpret: Kelly Clarkson
+    Spiellänge: 87
+am 9.6.2026 verliehen an
+    Kundennummer: 123464
+    Name: Lara Croft
+    Telefon: unbekannt
+    Anschrift:
+    Abenteuerallee 33
+    24104 Kiel
+Tue Jun 09 17:02:36 CEST 2026: Rückgabe
+CD:
+    Titel: Breakaway
+    Kommentar: Nachfolger vom Album Tankful
+    Interpret: Kelly Clarkson
+    Spiellänge: 87
+am 9.6.2026 verliehen an
+    Kundennummer: 123464
+    Name: Lara Croft
+    Telefon: unbekannt
+    Anschrift:
+    Abenteuerallee 33
+    24104 Kiel
+Tue Jun 09 17:02:41 CEST 2026: Ausleihe
+CD:
+    Titel: Breakaway
+    Kommentar: Nachfolger vom Album Tankful
+    Interpret: Kelly Clarkson
+    Spiellänge: 87
+am 9.6.2026 verliehen an
+    Kundennummer: 123460
+    Name: Katarina Klum
+    Telefon: unbekannt
+    Anschrift:
+    Ottensener Strasse 10
+    22761 Hamburg
+Tue Jun 09 17:02:44 CEST 2026: Rückgabe
+CD:
+    Titel: Breakaway
+    Kommentar: Nachfolger vom Album Tankful
+    Interpret: Kelly Clarkson
+    Spiellänge: 87
+am 9.6.2026 verliehen an
+    Kundennummer: 123460
+    Name: Katarina Klum
+    Telefon: unbekannt
+    Anschrift:
+    Ottensener Strasse 10
+    22761 Hamburg

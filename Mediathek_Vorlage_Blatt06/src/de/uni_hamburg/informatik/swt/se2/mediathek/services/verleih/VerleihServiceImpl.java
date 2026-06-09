@@ -217,7 +217,7 @@ public class VerleihServiceImpl extends AbstractObservableService
             _verleihkarten.put(medium, verleihkarte);
             if (istVorgemerkt(medium))
             {
-                entferneErstenVormerkerOhneBenachrichtigung(medium);
+                entferneErstenVormerker(medium);
             }
             _protokollierer.protokolliere(
                     VerleihProtokollierer.EREIGNIS_AUSLEIHE, verleihkarte);
@@ -400,25 +400,12 @@ public class VerleihServiceImpl extends AbstractObservableService
             .getErstenVormerker();
     }
 
-    @Override
-    public void entferneErstenVormerker(Medium medium)
-    {
-        assert istVorgemerkt(
-                medium) : "Vorbedingung verletzt: istVorgemerkt(medium)";
-
-        _vormerkarten.get(medium)
-            .entferneErstenVormerker();
-        informiereUeberAenderung();
-    }
-
     /**
      * Hilfsmethode für verleiheAn, um den 1. Vormerker zu entfernen, wenn er ausleiht.
      * @param medium Das Medium
      */
-    private void entferneErstenVormerkerOhneBenachrichtigung(Medium medium)
+    private void entferneErstenVormerker(Medium medium)
     {
-        assert istVorgemerkt(
-                medium) : "Vorbedingung verletzt: istVorgemerkt(medium)";
         _vormerkarten.get(medium)
             .entferneErstenVormerker();
     }

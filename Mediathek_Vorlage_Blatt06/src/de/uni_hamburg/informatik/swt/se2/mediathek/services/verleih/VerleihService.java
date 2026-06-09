@@ -292,13 +292,4 @@ public interface VerleihService extends ObservableService
      */
     Kunde getErstenVormerker(Medium medium);
 
-    /**
-     * Entfernt den ersten Vormerker eines Mediums.
-     *
-     * @param medium Das Medium.
-     *
-     * @require istVorgemerkt(medium)
-     */
-    void entferneErstenVormerker(Medium medium);
-
 }
