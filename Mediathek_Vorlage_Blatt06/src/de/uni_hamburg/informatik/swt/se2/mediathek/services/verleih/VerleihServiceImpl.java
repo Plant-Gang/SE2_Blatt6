@@ -297,4 +297,8 @@ public class VerleihServiceImpl extends AbstractObservableService
         return result;
     }
 
+    /**
+     * TODO Test
+     */
+
 }
